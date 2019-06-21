@@ -6,7 +6,11 @@
     android:layout_margin="10dp"
     tools:context=".MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </ScrollView>
     <LinearLayout
         android:id="@+id/txt_layout"
         android:layout_width="match_parent"
