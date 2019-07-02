@@ -23,10 +23,11 @@ import java.util.Map;
 public class MainActivity extends AppCompatActivity {
 
 
-    private static final String PRODUCT_URL = "http://192.168.8.172:8080/demo/all";
+    private static final String PRODUCT_URL = "http://172.19.1.200:8080/demo/all";
 
     RecyclerView recyclerView;
     ProductAdapter adapter;
+
     List<product> productList;
 
 
@@ -51,17 +52,19 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                //Toast.makeText(MainActivity.this,response,Toast.LENGTH_LONG).show();
                 try {
                     JSONArray products = new JSONArray(response);
 
                     for (int i = 0; i<products.length(); i++) {
                         JSONObject productobject = products.getJSONObject(i);
 
-                        int rating = productobject.getInt("rating");
+
                         int id = productobject.getInt("id");
                         String title = productobject.getString("title");
                         String shortdesc = productobject.getString("shortdesc");
                         double price = productobject.getDouble("price");
+                        double rating = productobject.getInt("rating");
                         String image = productobject.getString("image");
 
                         product product = new product(id, title, shortdesc,rating, price, image);
@@ -69,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     adapter = new ProductAdapter(MainActivity.this, productList);
                     recyclerView.setAdapter(adapter);
+
                     } catch (JSONException e1) {
                     e1.printStackTrace();
                 }

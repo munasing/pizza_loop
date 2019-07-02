@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 
 public class Login extends AppCompatActivity {
@@ -37,7 +38,9 @@ public class Login extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate(Email.getText().toString(), Password.getText().toString());
+                validate(Email.getText().toString(),Password.getText().toString());
+
+
             }
         });
 
@@ -49,8 +52,12 @@ public class Login extends AppCompatActivity {
 
     private void validate(String userEmail, String userpassword) {
         if ((userEmail.equals("ashan")) && (userpassword.equals("12") )) {
+
             Intent intent = new Intent(Login.this, MainActivity.class);
             startActivity(intent);
+
+           // Toast.makeText(Login.this, "email is "+Email.getText(),Toast.LENGTH_SHORT).show();
+           // Toast.makeText(Login.this, "password is "+Password.getText(),Toast.LENGTH_LONG).show();
         }
 
     }
