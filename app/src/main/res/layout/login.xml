@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:background="@drawable/vegetarian"
     tools:context=".MainActivity">
 
     <ScrollView
@@ -22,18 +23,31 @@
         android:layout_marginBottom="50dp"
         android:orientation="vertical">
 
-        <EditText
+         <EditText
             android:id="@+id/getEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email" />
+            android:layout_marginBottom="50dp"
+            android:background="@android:color/darker_gray"
+            android:drawableLeft="@drawable/ic_action_ema"
+            android:ems="10"
+            android:hint="E-mail"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/colorAccent"
+            android:textColorHint="@color/colorAccent" />
 
         <EditText
             android:id="@+id/getPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:hint="Password" />
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="80dp"
+            android:background="@android:color/darker_gray"
+            android:drawableLeft="@drawable/ic_action_pass"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColorHint="@color/colorAccent" />
 
     </LinearLayout>
 
@@ -42,28 +56,36 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txt_layout"
-        android:layout_marginLeft="50dp"
+        android:layout_marginLeft="30dp"
         android:orientation="horizontal">
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="150dp"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
-            android:text="login" />
+            android:layout_marginLeft="20dp"
+            android:background="@android:color/holo_purple"
+            android:text="login"
+            android:textColorHint="@android:color/holo_orange_dark"/>
 
         <Button
-            android:layout_width="150dp"
+            android:id="@+id/btn_registration"
+            android:layout_width="100dp"
             android:layout_height="wrap_content"
-            android:text="Register" />
+            android:layout_marginLeft="50dp"
+            android:background="@android:color/holo_purple"
+            android:text="Register"
+            android:textColorHint="@android:color/holo_orange_dark"
+            android:textColorLink="@color/colorPrimaryDark" />
 
     </LinearLayout>
 
     <ImageView
         android:id="@+id/img"
         android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_height="110dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:src="@mipmap/pizzalogos"/>
 
 </RelativeLayout>
