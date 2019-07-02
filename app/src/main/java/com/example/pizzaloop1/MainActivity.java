@@ -6,21 +6,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.Toast;
-
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
+
 
     private static final String PRODUCT_URL = "http://192.168.8.172:8080/demo/all";
 
@@ -56,14 +57,14 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i<products.length(); i++) {
                         JSONObject productobject = products.getJSONObject(i);
 
-
+                        int rating = productobject.getInt("rating");
                         int id = productobject.getInt("id");
                         String title = productobject.getString("title");
                         String shortdesc = productobject.getString("shortdesc");
                         double price = productobject.getDouble("price");
                         String image = productobject.getString("image");
 
-                        product product = new product(id, title, shortdesc, price, image);
+                        product product = new product(id, title, shortdesc,rating, price, image);
                         productList.add(product);
                     }
                     adapter = new ProductAdapter(MainActivity.this, productList);
@@ -80,9 +81,14 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
-        });
-
-
+        })
+        {
+         protected Map<String,String>getParams() throws AuthFailureError{
+             Map<String,String>params = new HashMap<>();
+             return params;
+         }
+        }
+                ;
         Volley.newRequestQueue(this).add(stringRequest);
     }
 

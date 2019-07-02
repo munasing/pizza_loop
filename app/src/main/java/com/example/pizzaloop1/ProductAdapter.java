@@ -39,6 +39,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
 
                holder.textViewTitle.setText(product.getTitle());
                holder.textViewDesc.setText(product.getShortedesc());
+               holder.textViewRating.setText(String.valueOf(product.getRating()));
                holder.textViewPrice.setText(String.valueOf(product.getPrice()));
 
         Glide.with(mCtx)
@@ -56,7 +57,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     class ProductViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView;
-        TextView textViewTitle, textViewDesc, textViewPrice;
+        TextView textViewTitle, textViewDesc, textViewRating, textViewPrice;
 
         public ProductViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,6 +65,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             imageView = itemView.findViewById(R.id.imageView);
             textViewTitle = itemView.findViewById(R.id.textViewTitle);
             textViewDesc = itemView.findViewById(R.id.textViewShortDesc);
+            textViewRating = itemView.findViewById(R.id.textViewRating);
             textViewPrice = itemView.findViewById(R.id.textViewPrice);
         }
     }
